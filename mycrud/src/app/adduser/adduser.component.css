@@ -1,0 +1,10 @@
+.upload{
+    color:rgb(8, 98, 5);
+    font-weight:600;
+}
+.cont{
+    position: relative;
+    left: 20%;
+    top: 10px;
+    width: 60%;
+}

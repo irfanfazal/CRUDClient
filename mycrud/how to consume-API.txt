@@ -1,0 +1,46 @@
+Consume API in Angular:
+
+import httpclientModule in module.ts file as follows
+
+import {HttpClientModule} from '@angular/common/http';
+
+STEP 1:
+create model class (ng g class)
+ define properties of class (databse ky tables ma jo column han unko define krna hai)
+ this model class have multiple classes for each table
+
+STEP 2:
+ create service (ng g service)
+ import {HttpClient} from '@angular/common/http';
+ in constructor create variable any name of your choice and have type HttpClient
+ in my case this is http  (public http:HttpClient);
+
+ in service we have to create method for post, put, delete and get
+
+GET:
+ get method have observable return type which is imported from rxjs library 
+ import {Observable} from 'rxjs';
+
+ example of get method:
+   getAll(): Observable<Usermodel[]> {
+    return this.http.get<Usermodel[]>(this.baseUrl);
+
+POST:
+post method have just url and data
+this.http.post(url,data)
+
+PUT:
+put method have id so we have to give url and id
+put(url/id,data)
+
+DELETE:
+delete method usually have only one data or item so we have to pass id as a parameter
+detele(id)
+this.http.detele(url/id)
+
+STEP 3:
+Now in component.ts file
+we have to inject our service and call these methods
+
+  
+

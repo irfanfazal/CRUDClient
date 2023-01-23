@@ -1,0 +1,40 @@
+ <div class="container">
+    <h1 class="text-center">CRUD App</h1>
+    <!-- <div *ngIf="isDeleted" class="alert alert-danger alert-dismissible fade show">
+  <strong>Record Deleted</strong>
+      </div> -->
+  <table class="table table-hover">
+    <thead class="table-dark">
+      <tr style="text-align: center;" >
+        <th>Id</th>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>IsMarrid</th>
+        <th>Country</th>
+        <th>Join Date</th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userserv.userslist">
+        <td>{{user.id}}</td>
+        <td><img [src]="createImgPath(user.imgPath)" style="width: 30px;height:30px"></td>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.isMarried}}</td>
+        <td>{{user.country}}</td>
+        <td>{{user.djoin | date:'MM-dd-yyyy'}}</td>
+        <td>{{user.details}}</td>
+        <td class="mt-4" style="color: blueviolet; font-size:19px; cursor: pointer;" (click)="editData(user)"><span class="fa fa-edit"></span></td>
+        <td class=" mt-4" style="color: red;font-size: 19px; cursor: pointer;" (click)="deleteRecord(user.id)"><span class="fa fa-trash"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

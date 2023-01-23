@@ -1,0 +1,33 @@
+<div class="conatiner m-5 p-5">
+    <div class="bg-light text-white m-5 p-5 d-flex justify-content-center">
+        <form #registerForm="ngForm" (ngSubmit)="signup(registerForm)">
+            <h2 class="form-signin-heading text-center m-5 text-info">Register</h2>
+            <div *ngIf="invalidregister" class="alert alert-danger"> Invalid username or password</div>
+            <input class="form-control col" type="text" name="firstname" placeholder="Firstname" required
+                #fname="ngModel" [(ngModel)]="myservice.registraion.FirstName">
+            <span *ngIf="fname.invalid&&(fname.touched||fname.dirty)" style="color: red;">required</span><br>
+
+            <input class="form-control col" type="text" name="lastname" placeholder="Lastname" required
+            #lname="ngModel" [(ngModel)]="myservice.registraion.LastName">
+        <span *ngIf="lname.invalid&&(lname.touched||lname.dirty)" style="color: red;">required</span><br>
+
+        <input class="form-control col" type="text" name="email" placeholder="Email" required
+        #email="ngModel" [(ngModel)]="myservice.registraion.Email">
+    <span *ngIf="email.invalid&&(email.touched||email.dirty)" style="color: red;">required</span><br>
+
+            <input class="form-control col-2" type="password" name="password" placeholder="password" required
+                #password="ngModel" [(ngModel)]="myservice.registraion.Password">
+            <span *ngIf="password.invalid&&(password.touched||password.dirty)" style="color: red;">required</span><br>
+
+            <input class="form-control col-2" type="password" name="conPassword" placeholder=" confirm password" required
+            #cpass="ngModel" [(ngModel)]="myservice.registraion.ConfirmPassword">
+        <span *ngIf="cpass.invalid&&(cpass.touched||cpass.dirty)" style="color: red;">required</span><br>
+      
+
+            <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+            <div>
+                <p style="color: black;margin-top: 20px;">Have an account? <span><a routerLink="/login" style="text-decoration: none; font-weight: bold;">Login</a></span></p>
+            </div>
+        </form>
+    </div>
+</div>

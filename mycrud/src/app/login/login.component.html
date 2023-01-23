@@ -1,0 +1,30 @@
+<div class="conatiner m-5 p-5">
+    <div class="bg-light text-white m-5 p-5 d-flex justify-content-center">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h2 class="form-signin-heading text-center m-5 text-info">Login</h2>
+            <div *ngIf="invalidLogin" class="alert alert-danger"> Invalid username or password</div>
+            <div class="input-group flex-nowrap p-2">
+                <span class="input-group-text fa fa-user" id="addon-wrapping"></span>
+                <input class="form-control col" type="text" name="username" placeholder="@username" required username
+                    #username="ngModel" [(ngModel)]="myservice.credentials.username">
+                <span *ngIf="username.invalid&&(username.touched||username.dirty)" style="color: red;">required</span>
+            </div>
+
+            <div class="input-group flex-nowrap p-2">
+                <span class="input-group-text fa fa-lock" id="addon-wrapping"></span>
+                <input class="form-control" [type]="fieldType" name="password" placeholder="password" required
+                    #password="ngModel" [(ngModel)]="myservice.credentials.password">
+                    <span (click)="hideShowPass()" class="input-group-text  fa {{eyeIcon}}" style="cursor: pointer;"></span>
+                <span *ngIf="password.invalid&&(password.touched||password.dirty)" style="color: red;">required</span>
+            </div>
+       <div class="d-grid p-2">
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+       </div>
+            <div>
+                <p style="color: black;margin-top: 20px;">Don't have account? <span><a routerLink="/register"
+                            style="text-decoration: none; font-weight: bold;">Register</a></span></p>
+            </div>
+        </form>
+    </div>
+    
+</div>
